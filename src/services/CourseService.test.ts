@@ -12,4 +12,8 @@ describe('Create new course', () => {
     expect(newCourse.title).toBe('lideranca');
     console.log(newCourse);    
   });
+
+  // test('Shold not be able to create with startDate bigger than endDate',() => {
+  //   expect(newCouse).
+  // })
 });
