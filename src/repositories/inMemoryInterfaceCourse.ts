@@ -1,5 +1,6 @@
 import { Course } from '../model/Course'
 
 export interface InMemoryInterfaceCourse {
-    create(course: Course): Promise<Course>;
+    save(course: Course): Promise<Course>;
+    delete(courseTitle: string): Promise<string>;
 };

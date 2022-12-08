@@ -27,6 +27,10 @@ export class Course {
     get title(): string {
         return this.#title;
     };
+
+    get spots(): number {
+        return this.#spots;
+    };
 };
 
 
