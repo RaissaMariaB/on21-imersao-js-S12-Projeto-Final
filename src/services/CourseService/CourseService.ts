@@ -33,30 +33,25 @@ export class CourseService {
               teacher);
 
           const createCourseResponse = this.repository.save(course)
-        // .then( (response) => {
-        //     // console.log(`Curso salvo com Sucesso `);
-        //     return response;
-        //   })
-        //   .catch( (error) => {
-        //     // console.log(error);
-        //     throw error;       
-        //   });
 
-        return createCourseResponse;
+          return createCourseResponse;
     };
 
 
     async delete(title: string) {
         const deleteCourseResponse = this.repository.delete(title)
-        // .then( (response) => {
-
-            // return response;            
-          // })
-          // .catch( (error) => {
-
-          //   return error;       
-          // });
 
         return deleteCourseResponse
+    };    
+
+    async addNewStudent(courseTitle: string, studentName: string) {
+      const course = await this.repository.findCourse(courseTitle);
+      course.students.push(studentName);
+      course.spots = course.spots - 1;
+
+      return course;               
     };
+
+    
+    
 };

@@ -31,6 +31,15 @@ export class Course {
     get spots(): number {
         return this.#spots;
     };
+
+    get students(): string[] {
+        return this.#students;
+    };
+
+    set spots(spots: number) {
+        this.#spots = spots;
+    };
+
 };
 
 

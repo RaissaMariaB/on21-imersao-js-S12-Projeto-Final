@@ -1,8 +1,7 @@
-import test from "node:test";
 import { Course } from "../../model/Course";
-import {InMemoryInterfaceCourse } from "../inMemoryInterfaceCourse";
+import {InMemoryCourseRepositoryInterface } from "../InMemoryCourseRepositoryInterface";
 
-export class InMemoryCourseRepository implements InMemoryInterfaceCourse {
+export class InMemoryCourseRepository implements InMemoryCourseRepositoryInterface {
     public items: Course[] = [];
 
     async save(course: Course): Promise<Course> {
@@ -11,20 +10,36 @@ export class InMemoryCourseRepository implements InMemoryInterfaceCourse {
         return course;
     };
 
-    async delete(courseTitle: string): Promise<string> {
+    async update(course: Course): Promise<Course> {
+        const courseToRemove = this.findCourse(course.title);
+        this.delete((await courseToRemove).title);
+        this.items.push(course);
+
+        return course;
+    };
+
+    async findCourse(courseTitle: string): Promise<Course> {
         const titleToLowerCase = courseTitle.toLocaleLowerCase();        
-        const courseByIndex = this.items.findIndex((element: Course) => element.title.toLocaleLowerCase() === titleToLowerCase);    
-        console.log(courseByIndex);
-        if(courseByIndex === -1) {
-            console.log('entrou');
-            
-            throw new Error( 'Falha ao deletar o curso, tente novamente')
-        }
-           
+        const course = this.items.find((element: Course) => element.title.toLocaleLowerCase() === titleToLowerCase);
+        
+        if (course === undefined) {
+            throw new Error(`Curso ${courseTitle} não encontrado`)
+        };
+
+        return course;
+    };
+
+    async delete(courseTitle: string): Promise<Course> {
+        const titleToLowerCase = courseTitle.toLocaleLowerCase();        
+        const courseByIndex = this.items.findIndex((element: Course) => element.title.toLocaleLowerCase() === titleToLowerCase);
+        
+        if (courseByIndex === -1) {
+            throw new Error(`Falha ao deletar o curso ${courseTitle}, tente novamente`)
+        }; 
+
         const deletedCourse = this.items.splice(courseByIndex, 1);
 
-        console.log(deletedCourse);   
-
-         return 'Curso deletado com sucesso!'       
+        return deletedCourse[0];
     };
+
 };
