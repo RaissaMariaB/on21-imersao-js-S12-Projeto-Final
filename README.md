@@ -1,9 +1,9 @@
 # Projeto Final Reprograma imersão JS
 Projeto final com tema livre criado na ultima semana do curso de imersao JS na reprograma
 
-## Inteligente Care
+## Intelligente Care
 
-![Banner com página da home Inteligente Care](./readmeFiles/ic-banner.png)
+![Banner com página da home Intelligente Care](./readmeFiles/ic-banner.png)
 
 Apesar das universidades de TI prepararem tecnicamente para o mercado de trabalho, sabemos que existem outras habilidades que são negligenciadas durante o processo de amadurecimento profissional, as softSkills.
 
