@@ -36,10 +36,17 @@ export class Course {
         return this.#students;
     };
 
+    get startsAt(): Date {
+        return this.#startsAt;
+    }
+
     set spots(spots: number) {
         this.#spots = spots;
     };
 
+    set students(students: string[]) {
+        this.#students = students;
+    };
 };
 
 
