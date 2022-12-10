@@ -1,7 +1,0 @@
-export class RegisterCourse {
-    
-
-    constructor() {
-
-    }
-}

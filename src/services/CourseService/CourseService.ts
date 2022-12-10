@@ -1,5 +1,5 @@
 import { Course } from "../../model/Course"
-import { InMemoryCourseRepository } from "../../repositories/in-memory/inMemoryCourseRepository";
+import { InMemoryCourseRepository } from "../../repositories/InMemoryCourse/InMemoryCourseRepository";
 
 export class CourseService {
     repository = new InMemoryCourseRepository();

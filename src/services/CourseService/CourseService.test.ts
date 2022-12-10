@@ -8,7 +8,7 @@ describe('Create new course', () => {
 
   beforeEach(() => {
     courseService = new CourseService();
-  })
+  });
 
   test('Should create a instance of a new course', async () => {    
     const newCourse = await courseService.create('lideranca', 'Curso sobre lideranca', 20, mockStartDate(), mockEndDate(), 'Amanda');

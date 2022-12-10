@@ -1,5 +1,5 @@
 import { Course } from "../../model/Course";
-import {InMemoryCourseRepositoryInterface } from "../InMemoryCourseRepositoryInterface";
+import {InMemoryCourseRepositoryInterface } from "./InMemoryCourseRepositoryInterface";
 
 export class InMemoryCourseRepository implements InMemoryCourseRepositoryInterface {
     public items: Course[] = [];
@@ -42,4 +42,7 @@ export class InMemoryCourseRepository implements InMemoryCourseRepositoryInterfa
         return deletedCourse[0];
     };
 
+    resetData() {
+        this.items = [];
+    };
 };

@@ -1,4 +1,4 @@
-import { Course } from '../model/Course'
+import { Course } from '../../model/Course'
 
 export interface InMemoryCourseRepositoryInterface {
     save(course: Course): Promise<Course>;
